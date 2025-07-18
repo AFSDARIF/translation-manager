@@ -1,13 +1,13 @@
 <?php
 
-namespace Kenepa\TranslationManager;
+namespace Afsdarif\TranslationManager;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\View\View;
-use Kenepa\TranslationManager\Http\Middleware\SetLanguage;
-use Kenepa\TranslationManager\Pages\QuickTranslate;
-use Kenepa\TranslationManager\Resources\LanguageLineResource;
+use Afsdarif\TranslationManager\Http\Middleware\SetLanguage;
+use Afsdarif\TranslationManager\Pages\QuickTranslate;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 
 class TranslationManagerPlugin implements Plugin
 {

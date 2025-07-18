@@ -1,6 +1,6 @@
 <?php
 
-namespace Kenepa\TranslationManager\Traits;
+namespace Afsdarif\TranslationManager\Traits;
 
 use Filament\Facades\Filament;
 

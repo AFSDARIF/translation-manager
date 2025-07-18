@@ -1,11 +1,11 @@
 <?php
 
-namespace Kenepa\TranslationManager\Resources\LanguageLineResource\Pages;
+namespace Afsdarif\TranslationManager\Resources\LanguageLineResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
-use Kenepa\TranslationManager\Actions\SynchronizeAction;
-use Kenepa\TranslationManager\Resources\LanguageLineResource;
+use Afsdarif\TranslationManager\Actions\SynchronizeAction;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 
 class ListLanguageLines extends ListRecords
 {

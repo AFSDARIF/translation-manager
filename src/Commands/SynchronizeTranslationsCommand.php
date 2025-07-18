@@ -1,9 +1,9 @@
 <?php
 
-namespace Kenepa\TranslationManager\Commands;
+namespace Afsdarif\TranslationManager\Commands;
 
 use Illuminate\Console\Command;
-use Kenepa\TranslationManager\Actions\SynchronizeAction;
+use Afsdarif\TranslationManager\Actions\SynchronizeAction;
 
 class SynchronizeTranslationsCommand extends Command
 {

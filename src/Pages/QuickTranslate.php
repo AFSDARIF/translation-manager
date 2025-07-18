@@ -1,14 +1,14 @@
 <?php
 
-namespace Kenepa\TranslationManager\Pages;
+namespace Afsdarif\TranslationManager\Pages;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Resources\Pages\Page;
-use Kenepa\TranslationManager\Resources\LanguageLineResource;
-use Kenepa\TranslationManager\Traits\CanRegisterPanelNavigation;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource;
+use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
 use Spatie\TranslationLoader\LanguageLine;
 
 class QuickTranslate extends Page implements HasForms
