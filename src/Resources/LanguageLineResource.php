@@ -25,12 +25,13 @@ use Afsdarif\TranslationManager\Resources\LanguageLineResource\Pages\ListLanguag
 use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
 use Spatie\TranslationLoader\LanguageLine;
 use Filament\Schemas\Schema;
+use BackedEnum;
 
 class LanguageLineResource extends Resource
 {
     use CanRegisterPanelNavigation;
     protected static ?string $model = LanguageLine::class;
-    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-globe-alt';
     protected static ?string $slug = 'translation-manager';
 
     /**
