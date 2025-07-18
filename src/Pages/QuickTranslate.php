@@ -15,7 +15,7 @@ class QuickTranslate extends Page implements HasForms
 {
     use CanRegisterPanelNavigation, InteractsWithForms;
 
-    protected static string $view = 'translation-manager::quick-translate';
+    protected string $view = 'translation-manager::quick-translate';
     protected static string $resource = LanguageLineResource::class;
 
     public $selectedLocale = null;
