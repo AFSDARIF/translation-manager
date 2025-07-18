@@ -10,7 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\EditAction;
+use Filament\Actions;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
@@ -111,7 +111,7 @@ class LanguageLineResource extends Resource
             ->columns(static::getColumns())
             ->filters([NotTranslatedFilter::make()])
             ->actions([
-                EditAction::make(),
+                Actions\EditAction::make(),
             ])
             ->bulkActions([])
             ->paginated([10, 25, 50])
