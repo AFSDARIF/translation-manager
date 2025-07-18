@@ -1,12 +1,12 @@
 <?php
 
-namespace Kenepa\TranslationManager\Actions;
+namespace Afsdarif\TranslationManager\Actions;
 
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Kenepa\TranslationManager\Commands\SynchronizeTranslationsCommand;
-use Kenepa\TranslationManager\Helpers\TranslationScanner;
+use Afsdarif\TranslationManager\Commands\SynchronizeTranslationsCommand;
+use Afsdarif\TranslationManager\Helpers\TranslationScanner;
 use Spatie\TranslationLoader\LanguageLine;
 
 class SynchronizeAction extends Action

@@ -1,9 +1,9 @@
 <?php
 
-namespace Kenepa\TranslationManager\Resources;
+namespace Afsdarif\TranslationManager\Resources;
 
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -18,12 +18,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
-use Kenepa\TranslationManager\Filters\NotTranslatedFilter;
-use Kenepa\TranslationManager\Pages\QuickTranslate;
-use Kenepa\TranslationManager\Resources\LanguageLineResource\Pages\EditLanguageLine;
-use Kenepa\TranslationManager\Resources\LanguageLineResource\Pages\ListLanguageLines;
-use Kenepa\TranslationManager\Traits\CanRegisterPanelNavigation;
+use Afsdarif\TranslationManager\Filters\NotTranslatedFilter;
+use Afsdarif\TranslationManager\Pages\QuickTranslate;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource\Pages\EditLanguageLine;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource\Pages\ListLanguageLines;
+use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
 use Spatie\TranslationLoader\LanguageLine;
+use Filament\Schemas\Schema;
 
 class LanguageLineResource extends Resource
 {
@@ -50,9 +51,9 @@ class LanguageLineResource extends Resource
         return trans_choice('translation-manager::translations.translation-label', 2);
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 TextInput::make('group')
                     ->prefixIcon('heroicon-o-tag')

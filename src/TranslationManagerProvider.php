@@ -1,11 +1,11 @@
 <?php
 
-namespace Kenepa\TranslationManager;
+namespace Afsdarif\TranslationManager;
 
 use Exception;
 use Illuminate\Support\Facades\Validator;
-use Kenepa\TranslationManager\Commands\SynchronizeTranslationsCommand;
-use Kenepa\TranslationManager\Resources\LanguageLineResource;
+use Afsdarif\TranslationManager\Commands\SynchronizeTranslationsCommand;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

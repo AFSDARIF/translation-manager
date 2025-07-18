@@ -1,9 +1,9 @@
 <?php
 
-namespace Kenepa\TranslationManager\Resources\LanguageLineResource\Pages;
+namespace Afsdarif\TranslationManager\Resources\LanguageLineResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
-use Kenepa\TranslationManager\Resources\LanguageLineResource;
+use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 
 class EditLanguageLine extends EditRecord
 {
