@@ -6,6 +6,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Form;
 use Filament\Resources\Pages\Page;
 use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
@@ -58,7 +59,7 @@ class QuickTranslate extends Page implements HasForms
     public function getForms(): array
     {
         return [
-            'selectForm' => $this->makeForm()
+            'selectForm' => Form::make()
                 ->schema([
                     Select::make('selectedLocale')
                         ->options(collect(config('translation-manager.available_locales'))->pluck('code', 'code'))
@@ -70,7 +71,7 @@ class QuickTranslate extends Page implements HasForms
                         }),
                 ]),
 
-            'enterForm' => $this->makeForm()
+            'enterForm' => Form::make()
                 ->schema([
                     Textarea::make('enteredTranslation')
                         ->label(__('translation-manager::translations.quick-translate-enter', ['lang' => $this->selectedLocale]))
