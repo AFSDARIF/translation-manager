@@ -6,7 +6,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Pages\Page;
+use Filament\Resources\Pages\Page;
 use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
 use Spatie\TranslationLoader\LanguageLine;
@@ -50,34 +50,43 @@ class QuickTranslate extends Page implements HasForms
 
     public function mount(): void
     {
-        abort_unless(static::shouldRegisterOnPanel(), 403);
+        //abort_unless(static::shouldRegisterOnPanel(), 403);
     }
 
     /**
      * Returns an array containing two forms for quick translation of content.
      */
-    public function getForms(): array
+    protected function getForms(): array
     {
         return [
-            'selectForm' => $this->makeForm()
-                ->schema([
-                    Select::make('selectedLocale')
-                        ->options(collect(config('translation-manager.available_locales'))->pluck('code', 'code'))
-                        ->label(__('translation-manager::translations.quick-translate-select-locale'))
-                        ->reactive()
-                        ->afterStateUpdated(function ($state) {
-                            $this->offset = 0;
-                            $this->next();
-                        }),
-                ]),
-
-            'enterForm' => $this->makeForm()
-                ->schema([
-                    Textarea::make('enteredTranslation')
-                        ->label(__('translation-manager::translations.quick-translate-enter', ['lang' => $this->selectedLocale]))
-                        ->required(),
-                ]),
+            'selectForm',
+            'enterForm',
         ];
+    }
+
+    public function selectForm(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Select::make('selectedLocale')
+                    ->options(collect(config('translation-manager.available_locales'))->pluck('code', 'code'))
+                    ->label(__('translation-manager::translations.quick-translate-select-locale'))
+                    ->reactive()
+                    ->afterStateUpdated(function ($state) {
+                        $this->offset = 0;
+                        $this->next();
+                    }),
+            ]);
+    }
+
+    public function enterForm(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Textarea::make('enteredTranslation')
+                    ->label(__('translation-manager::translations.quick-translate-enter', ['lang' => $this->selectedLocale]))
+                    ->required(),
+            ]);
     }
 
     /**
