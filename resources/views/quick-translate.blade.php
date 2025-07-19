@@ -1,3 +1,4 @@
+<x-filament::page>
 <div>
     <div class="py-4">
         <h1 class="filament-header-heading text-2xl font-bold tracking-tight">
@@ -39,3 +40,4 @@
         @endif
     @endif
 </div>
+</x-filament::page>
