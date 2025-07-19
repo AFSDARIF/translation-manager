@@ -10,6 +10,7 @@ use Filament\Pages\Page;
 use Afsdarif\TranslationManager\Resources\LanguageLineResource;
 use Afsdarif\TranslationManager\Traits\CanRegisterPanelNavigation;
 use Spatie\TranslationLoader\LanguageLine;
+use Filament\Schemas\Schema;
 
 class QuickTranslate extends Page implements HasForms
 {
@@ -58,7 +59,7 @@ class QuickTranslate extends Page implements HasForms
     public function getForms(): array
     {
         return [
-            'selectForm' => $this->form('selectForm')
+            'selectForm' => $this->makeForm()
                 ->schema([
                     Select::make('selectedLocale')
                         ->options(collect(config('translation-manager.available_locales'))->pluck('code', 'code'))
@@ -70,7 +71,7 @@ class QuickTranslate extends Page implements HasForms
                         }),
                 ]),
 
-            'enterForm' => $this->form('enterForm')
+            'enterForm' => $this->makeForm()
                 ->schema([
                     Textarea::make('enteredTranslation')
                         ->label(__('translation-manager::translations.quick-translate-enter', ['lang' => $this->selectedLocale]))

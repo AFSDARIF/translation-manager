@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Afsdarif\TranslationManager\Http\Middleware\SetLanguage;
 use Afsdarif\TranslationManager\Pages\QuickTranslate;
 use Afsdarif\TranslationManager\Resources\LanguageLineResource;
+use Filament\View\PanelsRenderHook;
 
 class TranslationManagerPlugin implements Plugin
 {
@@ -30,16 +31,11 @@ class TranslationManagerPlugin implements Plugin
             ->pages([
                 QuickTranslate::class,
             ]);
-
         if (config('translation-manager.language_switcher')) {
             $panel->renderHook(
                 config('translation-manager.language_switcher_render_hook'),
                 fn (): View => $this->getLanguageSwitcherView()
             );
-
-            $panel->authMiddleware([
-                SetLanguage::class,
-            ]);
         }
 
     }
@@ -57,7 +53,11 @@ class TranslationManagerPlugin implements Plugin
     private function getLanguageSwitcherView(): View
     {
         $locales = config('translation-manager.available_locales');
-        $currentLocale = app()->getLocale();
+        if(session()->has('language')){
+            $currentLocale = session()->get('language');
+        }else{
+            $currentLocale = app()->getLocale();
+        }
         $currentLanguage = collect($locales)->firstWhere('code', $currentLocale);
         $otherLanguages = $locales;
         $showFlags = config('translation-manager.show_flags');
